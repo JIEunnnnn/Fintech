@@ -29,6 +29,6 @@ dependencies {
 
     //QR코드리더기 사용을 위한 코드 및 minSDK가 최소한 24로 설정해야함!
     implementation 'com.journeyapps:zxing-android-embedded:4.0.0'
-    implementation 'androidx.appcompat:appcompat:1.0.2'
+    implementation 'com.google.zxing:core:3.3.0'
 
 }
