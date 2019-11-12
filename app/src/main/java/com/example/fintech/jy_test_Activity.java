@@ -3,6 +3,8 @@ package com.example.fintech;
 import android.content.ContentValues;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -10,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 public class jy_test_Activity extends AppCompatActivity {
 
     private TextView tv_outPut;
+    private Button getTestBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,13 +21,22 @@ public class jy_test_Activity extends AppCompatActivity {
 
         // 위젯에 대한 참조.
         tv_outPut = (TextView) findViewById(R.id.tv_outPut);
+        getTestBtn = (Button) findViewById(R.id.getTestBtn);
 
-        // URL 설정.
-        String url = "http://       .cafe24.com/LoadPat        ";
+        getTestBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // URL 설정.
+                String url = "http://172.30.1.15:9010";
+                // AsyncTask를 통해 HttpURLConnection 수행.
+                NetworkTask networkTask = new NetworkTask(url, null);
+                networkTask.execute();
 
-        // AsyncTask를 통해 HttpURLConnection 수행.
-        NetworkTask networkTask = new NetworkTask(url, null);
-        networkTask.execute();
+
+            }
+        });
+
+
     }
 
     public class NetworkTask extends AsyncTask<Void, Void, String> {
