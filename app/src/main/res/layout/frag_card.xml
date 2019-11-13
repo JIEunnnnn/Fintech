@@ -25,3 +25,5 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>
+
+<!-- 카드 정보 어떤걸 받아올수있는지 보고 -->

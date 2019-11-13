@@ -19,5 +19,28 @@ public class MenuActivity extends AppCompatActivity {
         Button btnGivingPass = (Button) findViewById(R.id.givingPassBtn);
         Button btnUsePass = (Button) findViewById(R.id.usePassBtn);
 
+        btnManageCard.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent =new Intent(getApplicationContext(), CardManagementActivity.class);
+                startActivity(intent);
+            }
+        });
+        btnGivingPass.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                Intent intent =new Intent(getApplicationContext(), GivingPassActivity.class);
+                startActivity(intent);
+            }
+        });
+        btnUsePass.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                Intent intent =new Intent(getApplicationContext(), UsePassActivity.class);
+                startActivity(intent);
+            }
+        });
+
     }
+
 }

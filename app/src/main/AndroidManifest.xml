@@ -25,6 +25,11 @@
                   android:screenOrientation="fullSensor"
                   android:stateNotNeeded="true"
                   tools:replace="screenOrientation"/>
+        <activity android:name=".MenuActivity"/>
+        <activity android:name=".GivingPassActivity"/>
+        <activity android:name=".UsePassActivity"/>
+        <activity android:name=".CardManagementActivity"/>
+        <activity android:name=".AddCardActivity"/>
         <!-- 세로모드! 설정하기. -->
         <activity android:name="com.journeyapps.barcodescanner.CaptureActivity"
             android:screenOrientation="fullSensor"

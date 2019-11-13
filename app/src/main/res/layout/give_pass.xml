@@ -12,10 +12,11 @@
         android:layout_width="170dp"
         android:layout_height="60dp"
         android:hint="id"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="292dp" />
+        app:layout_constraintTop_toTopOf="parent" />
 
 
     <EditText
@@ -35,11 +36,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="id"
-        android:textSize="20dp"
         android:textColor="#000000"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/id_edit"
+        app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="310dp" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/limitPrice_text"
@@ -48,17 +51,21 @@
         android:text="한도금액"
         android:textColor="#000000"
         android:textSize="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/limitPrice_edit"
-        app:layout_constraintHorizontal_bias="0.504"
+        app:layout_constraintHorizontal_bias="0.355"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="456dp" />
+        app:layout_constraintTop_toBottomOf="@+id/id_text"
+        app:layout_constraintVertical_bias="0.32" />
 
     <Button
         android:id="@+id/givePassfinish_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="완료"
-        tools:layout_editor_absoluteX="281dp"
-        tools:layout_editor_absoluteY="621dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/limitPrice_edit" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

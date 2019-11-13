@@ -6,25 +6,33 @@ import android.view.View;
 import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.fintech.Pass.Pass;
+
+import java.util.ArrayList;
 
 public class UsePassActivity  extends AppCompatActivity {
+
+    private ArrayList<Pass> mArrayList;
+    private UsePassViewAdapter mAdapter;
+    private int count = -1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.use_pass);
 
-        Button btnQR = (Button) findViewById(R.id.buttonQR);
-        final Intent intent = new Intent(this, QRActivity.class);
+        RecyclerView pRecyclerView = findViewById(R.id.recycle_pass);
+        LinearLayoutManager pLinearLayoutManager = new LinearLayoutManager(this);
+        pRecyclerView.setLayoutManager(pLinearLayoutManager);
 
-        btnQR.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //새로운 액티비시 생성하여 qr코드 인식하는 화면 및  인식된 qr코드를 읽는방법 ㅇㅇ
-                startActivity(intent);
+        mArrayList = new ArrayList<>();
 
-
-            }
-        });
+        mArrayList.add(new Pass("hyovin", "2019-11-29"));
+        mArrayList.add(new Pass("hyovin", "2019-11-30"));
+        mAdapter = new UsePassViewAdapter(mArrayList);
+        pRecyclerView.setAdapter(mAdapter);
     }
 }
