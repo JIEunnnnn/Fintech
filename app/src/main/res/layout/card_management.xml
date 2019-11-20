@@ -7,6 +7,7 @@
         android:layout_height="50dp"
         android:src="@drawable/plus"
         android:scaleType="fitCenter"
+        android:layout_margin="10dp"
         android:layout_gravity="right"
         android:background="#ffffff">
     </ImageButton>

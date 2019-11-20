@@ -4,35 +4,115 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="5dp"
+    android:layout_margin="5dp"
     tools:context=".MainActivity">
 
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline01"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent=".02"
+        app:layout_constraintGuide_begin="100dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline02"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent=".50"
+        app:layout_constraintGuide_begin="100dp" />
+
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline03"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent=".98"
+        app:layout_constraintGuide_begin="100dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/top_guideline01"
+        app:layout_constraintGuide_percent=".00"
+        android:orientation="horizontal"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/top_guideline02"
+        app:layout_constraintGuide_percent=".25"
+        android:orientation="horizontal"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/top_guideline03"
+        app:layout_constraintGuide_percent=".50"
+        android:orientation="horizontal"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/top_guideline04"
+        app:layout_constraintGuide_percent=".75"
+        android:orientation="horizontal"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/top_guideline05"
+        app:layout_constraintGuide_percent=".95"
+        android:orientation="horizontal"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/top_guideline06"
+        app:layout_constraintGuide_percent="1.00"
+        android:orientation="horizontal"/>
     <Button
         android:id="@+id/manageCardBtn"
-        android:layout_width="170dp"
-        android:layout_height="60dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_margin="10dp"
         android:text="카드 관리"
-        app:layout_constraintBottom_toTopOf="@+id/givingPassBtn"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:textSize="18dp"
+        android:background="@drawable/button_layout"
+        app:layout_constraintLeft_toRightOf="@+id/guideline02"
+        app:layout_constraintRight_toLeftOf="@id/guideline03"
+        app:layout_constraintTop_toBottomOf="@+id/top_guideline02"
+        app:layout_constraintBottom_toTopOf="@+id/top_guideline03"
+        />
 
     <Button
         android:id="@+id/givingPassBtn"
-        android:layout_width="170dp"
-        android:layout_height="60dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_margin="10dp"
         android:text="이용권 주기"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:textSize="18dp"
+        android:background="@drawable/button_layout"
+        app:layout_constraintLeft_toRightOf="@+id/guideline01"
+        app:layout_constraintRight_toLeftOf="@id/guideline02"
+        app:layout_constraintTop_toBottomOf="@+id/top_guideline03"
+        app:layout_constraintBottom_toTopOf="@+id/top_guideline04"
+        />
 
     <Button
         android:id="@+id/usePassBtn"
-        android:layout_width="170dp"
-        android:layout_height="60dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_margin="10dp"
         android:text="이용권 사용"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/givingPassBtn" />
+        android:textSize="18dp"
+        android:background="@drawable/button_layout"
+        app:layout_constraintLeft_toRightOf="@+id/guideline02"
+        app:layout_constraintRight_toLeftOf="@id/guideline03"
+        app:layout_constraintTop_toBottomOf="@+id/top_guideline03"
+        app:layout_constraintBottom_toTopOf="@+id/top_guideline04"
+        />
 </androidx.constraintlayout.widget.ConstraintLayout>
