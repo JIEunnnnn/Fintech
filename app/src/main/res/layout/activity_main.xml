@@ -87,6 +87,7 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_margin="10dp"
+        android:inputType="number"
         android:hint="    Tel"
         android:background="@drawable/button2_layout"
         app:layout_constraintLeft_toRightOf="@+id/guideline01"
@@ -102,7 +103,8 @@
         android:layout_margin="10dp"
         android:hint="    Password"
         android:ems="10"
-        android:inputType="textPassword"
+        android:inputType="numberPassword"
+
         android:background="@drawable/button2_layout"
         app:layout_constraintLeft_toRightOf="@+id/guideline01"
         app:layout_constraintRight_toLeftOf="@id/guideline02"
