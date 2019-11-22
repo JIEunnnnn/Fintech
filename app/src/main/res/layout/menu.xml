@@ -40,26 +40,20 @@
         app:layout_constraintGuide_percent=".00"
         android:orientation="horizontal"/>
 
-    <androidx.constraintlayout.widget.Guideline
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/top_guideline02"
-        app:layout_constraintGuide_percent=".25"
-        android:orientation="horizontal"/>
 
     <androidx.constraintlayout.widget.Guideline
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:id="@+id/top_guideline03"
-        app:layout_constraintGuide_percent=".50"
-        android:orientation="horizontal"/>
-
-    <androidx.constraintlayout.widget.Guideline
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.3" />
+
+    <androidx.constraintlayout.widget.Guideline
         android:id="@+id/top_guideline04"
-        app:layout_constraintGuide_percent=".75"
-        android:orientation="horizontal"/>
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.59" />
 
     <androidx.constraintlayout.widget.Guideline
         android:layout_width="wrap_content"
@@ -74,19 +68,6 @@
         android:id="@+id/top_guideline06"
         app:layout_constraintGuide_percent="1.00"
         android:orientation="horizontal"/>
-    <Button
-        android:id="@+id/manageCardBtn"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_margin="10dp"
-        android:text="카드 관리"
-        android:textSize="18dp"
-        android:background="@drawable/button_layout"
-        app:layout_constraintLeft_toRightOf="@+id/guideline02"
-        app:layout_constraintRight_toLeftOf="@id/guideline03"
-        app:layout_constraintTop_toBottomOf="@+id/top_guideline02"
-        app:layout_constraintBottom_toTopOf="@+id/top_guideline03"
-        />
 
     <Button
         android:id="@+id/givingPassBtn"
@@ -97,7 +78,7 @@
         android:text="이용권 주기"
         android:textSize="18dp"
         app:layout_constraintBottom_toTopOf="@+id/top_guideline04"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.15"
         app:layout_constraintLeft_toRightOf="@+id/guideline01"
         app:layout_constraintRight_toLeftOf="@id/guideline02"
         app:layout_constraintTop_toBottomOf="@+id/top_guideline03"
@@ -108,12 +89,13 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_margin="10dp"
+        android:background="@drawable/button_layout"
         android:text="이용권 사용"
         android:textSize="18dp"
-        android:background="@drawable/button_layout"
+        app:layout_constraintBottom_toTopOf="@+id/top_guideline04"
+        app:layout_constraintHorizontal_bias="0.85"
         app:layout_constraintLeft_toRightOf="@+id/guideline02"
         app:layout_constraintRight_toLeftOf="@id/guideline03"
         app:layout_constraintTop_toBottomOf="@+id/top_guideline03"
-        app:layout_constraintBottom_toTopOf="@+id/top_guideline04"
-        />
+        app:layout_constraintVertical_bias="1.0" />
 </androidx.constraintlayout.widget.ConstraintLayout>
