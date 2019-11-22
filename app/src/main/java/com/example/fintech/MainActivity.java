@@ -20,18 +20,18 @@ import java.io.IOException;
 
 public class MainActivity extends AppCompatActivity {
 
-    public static final String url = "http://localhost:8080/user";
+    public static final String url = "http://10.3.17.173:9786/user";
     // 서버 주소 url
 
     private static final String TAG = "OKHTTP 테스트";
     public static final MediaType JSON = MediaType.parse("application/json; charset=utf-8");
 
+     // String result
+    // result를 전역변수로 설정해서 서버에서 요청받은 메세지에 ㄸ라 intent 수행하게끔 설정하기
 
     EditText tel ;
     EditText pw ;
     Button btnLogin ;
-
-
 
 
 
@@ -41,11 +41,13 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        final HttpConnection2 connectServ = new HttpConnection2();
+
         btnLogin = (Button) findViewById(R.id.loginBtn);
         tel = (EditText)findViewById(R.id.login_id);
         pw = (EditText)findViewById(R.id.login_pw);
 
-        final HttpConnection connectServ = new HttpConnection();
+
 
         final Intent intent = new Intent(this, MenuActivity.class);
 
@@ -58,13 +60,20 @@ public class MainActivity extends AppCompatActivity {
 
                 connectServ.requestPost(url, inTel, inPw);
 
-                 // tartActivity(intent);
+
+             /*
+             * if(result == "yes"){
+             * startActivity(intent);  서버에서 response 응답받으면 다음 화면으로 넘어가도록 처리!
+             * }else {
+             *  Toast.makeText(this.getApplicationContext(),"일치하는 회원정보가 없습니다.", Toast.LENGTH_SHORT).show();
+             * }
+            * */
             }
         });
 
     }
 
-    class HttpConnection {
+    class HttpConnection2 {
 
         OkHttpClient clnt  = new OkHttpClient(); // OK객체 생성
 
@@ -90,7 +99,13 @@ public class MainActivity extends AppCompatActivity {
                     public void run() {
                         try{
                             Response res =  clnt.newCall(request).execute();
+                            Log.d("Thread", "매세지!"+res);
+
+                            String result = res.body().string();
+                            Log.d("Thread", "메세지! "+result);
+
                         }catch (IOException e){
+                            Log.d("Thread","동기식 thread 실패...");
                             e.printStackTrace();
                         }
 

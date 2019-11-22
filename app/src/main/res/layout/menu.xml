@@ -93,14 +93,15 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_margin="10dp"
+        android:background="@drawable/button_layout"
         android:text="이용권 주기"
         android:textSize="18dp"
-        android:background="@drawable/button_layout"
+        app:layout_constraintBottom_toTopOf="@+id/top_guideline04"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toRightOf="@+id/guideline01"
         app:layout_constraintRight_toLeftOf="@id/guideline02"
         app:layout_constraintTop_toBottomOf="@+id/top_guideline03"
-        app:layout_constraintBottom_toTopOf="@+id/top_guideline04"
-        />
+        app:layout_constraintVertical_bias="0.0" />
 
     <Button
         android:id="@+id/usePassBtn"
