@@ -1,5 +1,6 @@
 package com.example.fintech;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
@@ -17,10 +18,12 @@ public class GivingPassActivity extends AppCompatActivity {
         setContentView(R.layout.give_pass);
 
         cardPlus = (ImageButton)findViewById(R.id.cardplus);
+        Intent intet = new Intent(this, FragCardActivity.class  );
 
         cardPlus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
 
             }
         });

@@ -83,6 +83,7 @@ public class MainActivity extends AppCompatActivity {
 
                 if(result.equals(MSG)){
                     startActivity(intent);  // 서버에서 response 응답받으면 다음 화면으로 넘어가도록 처리!
+                    finish();
 
                 }else {
                     Toast.makeText(getApplicationContext(), "일치하는 회원정보가 없습니다.", Toast.LENGTH_SHORT).show();
