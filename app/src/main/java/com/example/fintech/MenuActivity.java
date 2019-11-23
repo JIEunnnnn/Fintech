@@ -11,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 public class MenuActivity extends AppCompatActivity {
 
     public static String id;
+    public static String pw;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,7 +24,7 @@ public class MenuActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         id = intent.getStringExtra("id");
-
+        pw = intent.getStringExtra("pw");
 
         btnGivingPass.setOnClickListener(new View.OnClickListener(){
             @Override

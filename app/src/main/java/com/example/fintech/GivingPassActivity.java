@@ -47,82 +47,44 @@ public class GivingPassActivity extends AppCompatActivity {
         setContentView(R.layout.give_pass);
 
         String id = MenuActivity.id;
-
-        Log.d("Thread", "이용권주기" + id);
-
-        Log.d("Thread", "이용권주기22222 " + Integer.parseInt(id));
-
-
-
+        mList = new ArrayList<>();
 
         final GivingPassClnt passclnt = new GivingPassClnt();
 
-
         passclnt.requestPassPost(url, Integer.parseInt(id));
-
-
-
 
         try{
             Thread.sleep(300);
-
-
             try{
-
-
-//                JSONObject obj = new JSONObject(result);
                 JSONArray jsonCardArray = new JSONArray(result);
+                Log.d("JSON",  result);
                 for(int i=0;i<jsonCardArray.length();i++)
                 {
                     JSONObject card = (JSONObject) jsonCardArray.get(i);
+                    Log.d("JSON",  card.toString());
                     String cardname = card.getString("card_name");
-                    String cardnaum = card.getString("card_number");
-                    Log.d("JSON",  cardname + cardnaum);
+                    String cardnumb = card.getString("card_number");
+                    Log.d("JSON",  cardname + cardnumb);
+                    mList.add(new Card(cardname, cardnumb));
                 }
-//                String cardname = obj.getString("card_name");
-//                String cardnaum = obj.getString("card_number");
-
-//                Log.d("JSON","제이쓴 결과"+ cardname + cardnaum);
-
-
-
-
             }catch (JSONException e){
                 e.printStackTrace();
             }
-
-
-
-
-
-
         }catch (Exception e){
             e.printStackTrace();
         }
 
-
-
-        mList = new ArrayList<>();
-
-
+        //About RecycleView
         RecyclerView pRecyclerView = findViewById(R.id.recycle_pass);
         LinearLayoutManager pLinearLayoutManager = new LinearLayoutManager(this);
         pRecyclerView.setLayoutManager(pLinearLayoutManager);
 
-
-        // 서버에 전송받은 데이터 ㅇㅇ 받기
-        mList.add(new Card("Deep Dream(체크)[딥 드림] 신한은행", "3569-****-****-2745"));
-        mList.add(new Card("Simple Platinum", "23779-****-****-001"));
         mAdapter = new GivingPassViewAdapter(mList);
         pRecyclerView.setAdapter(mAdapter);
-
-
     }
 
 
     class GivingPassClnt {
-
-
         OkHttpClient passclnt = new OkHttpClient(); // OK객체 생성
 
         public void requestPassPost(String url, Integer id) {
@@ -147,7 +109,6 @@ public class GivingPassActivity extends AppCompatActivity {
                             public void onFailure(@NotNull Call call, @NotNull IOException e) {
                                 Log.d("Thread", "이용권주기서버실패 ");
 
-
                             }
 
                             @Override
@@ -155,22 +116,15 @@ public class GivingPassActivity extends AppCompatActivity {
                                 result = response.body().string();
                                 Log.d("Thread", "이용권주기서버성공 " + result);
 
-
-
-
-
                                 // MAP => frag_pass로 전달해야지
 
-                                //
                             }
-
 
                         });
 
             } catch (Exception e) {
                 e.printStackTrace();
             }
-
 
         }
     }
