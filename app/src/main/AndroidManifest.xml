@@ -38,6 +38,19 @@
         <activity android:name=".AddCardActivity"/>
         <activity android:name=".FragCardActivity" />
         <activity android:name=".CustomDialog"/>
+        
+        <service
+            android:name=".Firebase.AppFirebaseMessagingService"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
+            </intent-filter>
+        </service>
+
+
+            
 
         <!-- 세로모드! 설정하기. -->
         <activity android:name="com.journeyapps.barcodescanner.CaptureActivity"
