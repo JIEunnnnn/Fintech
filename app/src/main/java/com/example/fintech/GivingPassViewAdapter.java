@@ -111,6 +111,7 @@ public class GivingPassViewAdapter extends RecyclerView.Adapter<GivingPassViewAd
             public void onClick(View view) {
                 PostGivingPassClnt postGivingPassClnt = new PostGivingPassClnt();
                 postGivingPassClnt.requestPassPost(edittoid.getText().toString(), editlimit.getText().toString(), editfrompw.getText().toString());
+                Toast.makeText(view.getContext(),"이용권이 전송되었습니다.", Toast.LENGTH_LONG).show();
 
                 dialog.dismiss();
             }

@@ -70,19 +70,22 @@ public class SignUpActivity extends AppCompatActivity {
             public void onClick(View view) {
                 AuthUsingPhone authUsingPhone = new AuthUsingPhone();
                 authUsingPhone.requestPost();
+                try{
+                    Thread.sleep(300);
+                    try {
+                        JSONObject resultObject = new JSONObject(result);
+                        JSONObject dataHeader = resultObject.getJSONObject("dataHeader");
+                        if (dataHeader.getString("successCode").equals("0")){
+                            Toast.makeText(getApplicationContext(),"인증되었습니다.", Toast.LENGTH_LONG).show();
 
-                try {
-                    JSONObject resultObject = new JSONObject(result);
-                    JSONObject dataHeader = resultObject.getJSONObject("dataHeader");
-                    if (dataHeader.getString("successCode").equals("0")){
-                        Toast.makeText(getApplicationContext(),"인증되었습니다.", Toast.LENGTH_LONG).show();
+                        }
 
+                    } catch (JSONException e) {
+                        e.printStackTrace();
                     }
-
-                } catch (JSONException e) {
-                    e.printStackTrace();
+                }catch (Exception e){
+                        e.printStackTrace();
                 }
-
             }
         });
 

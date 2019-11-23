@@ -35,6 +35,7 @@ public class QRActivity extends AppCompatActivity {
     public String chosenPass_id;
     public static String result;
 
+    public String price;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,13 +60,10 @@ public class QRActivity extends AppCompatActivity {
                 Toast.makeText(this, "Cancelled",Toast.LENGTH_LONG).show();
             }
             else{
+                price="35000";
                 qrContents = res.getContents();
                 PosterQRcode posterQRcode = new PosterQRcode();
                 posterQRcode.requestPassPost(url);
-
-
-
-
             }
         }else{
             super.onActivityResult(requestCode, resultCode, data);
@@ -85,7 +83,7 @@ public class QRActivity extends AppCompatActivity {
                 JSONObject js = new JSONObject();
                 js.put("pass_id", chosenPass_id);
                 js.put("qr", qrContents);
-                js.put("price", "3500000");
+                js.put("price", price);
 
                 passbody = RequestBody.create(JSON, js.toString());
 
@@ -100,7 +98,6 @@ public class QRActivity extends AppCompatActivity {
                             @Override
                             public void onFailure(@NotNull Call call, @NotNull IOException e) {
                                 Log.d("Thread", "QR결제서버실패 ");
-
                             }
 
                             @Override
@@ -115,7 +112,7 @@ public class QRActivity extends AppCompatActivity {
                                         // 사용하고자 하는 코드
                                         if(result.equals("true"))
                                         {
-                                            Toast.makeText(getApplicationContext(),"이용권 사용이 완료되었습니다", Toast.LENGTH_LONG).show();
+                                            Toast.makeText(getApplicationContext(),"이용권으로 "+price +"원이 결제되었습니다.", Toast.LENGTH_LONG).show();
                                             // 결과값 토스트메세지로 나타내기 => 결제창넘어가기로 변경해야함!
                                             // getContents() == 스캔하여 얻은 데이터 의미
                                             Intent intent =new Intent(getApplicationContext(), MenuActivity.class);
