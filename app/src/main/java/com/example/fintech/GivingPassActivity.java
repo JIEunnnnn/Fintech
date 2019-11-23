@@ -51,7 +51,7 @@ public class GivingPassActivity extends AppCompatActivity {
 
         final GivingPassClnt passclnt = new GivingPassClnt();
 
-        passclnt.requestPassPost(url, Integer.parseInt(id));
+        passclnt.requestPassPost(url, id);
 
         try{
             Thread.sleep(300);
@@ -87,7 +87,7 @@ public class GivingPassActivity extends AppCompatActivity {
     class GivingPassClnt {
         OkHttpClient passclnt = new OkHttpClient(); // OK객체 생성
 
-        public void requestPassPost(String url, Integer id) {
+        public void requestPassPost(String url, String id) {
 
             final RequestBody passbody;
 

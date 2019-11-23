@@ -2,6 +2,7 @@ package com.example.fintech;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
@@ -18,13 +19,13 @@ public class MenuActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.menu);
 
-
         Button btnGivingPass = (Button) findViewById(R.id.givingPassBtn);
         Button btnUsePass = (Button) findViewById(R.id.usePassBtn);
 
         Intent intent = getIntent();
         id = intent.getStringExtra("id");
         pw = intent.getStringExtra("pw");
+        Log.d("id", "Menu id: "+id);
 
         btnGivingPass.setOnClickListener(new View.OnClickListener(){
             @Override

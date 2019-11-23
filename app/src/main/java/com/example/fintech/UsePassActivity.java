@@ -42,7 +42,7 @@ public class UsePassActivity  extends AppCompatActivity {
         mList = new ArrayList<>();
         final UsePassClnt passclnt = new UsePassClnt();
 
-        passclnt.requestPassPost(url, Integer.parseInt(MenuActivity.id));
+        passclnt.requestPassPost(url, MenuActivity.id);
         try{
             Thread.sleep(500);
             try{
@@ -77,7 +77,7 @@ public class UsePassActivity  extends AppCompatActivity {
     class UsePassClnt {
         OkHttpClient passclnt = new OkHttpClient(); // OK객체 생성
 
-        public void requestPassPost(String url, Integer id) {
+        public void requestPassPost(String url, String id) {
 
             final RequestBody passbody;
 
