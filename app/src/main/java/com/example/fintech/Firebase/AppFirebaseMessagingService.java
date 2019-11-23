@@ -21,13 +21,11 @@ import androidx.core.app.NotificationCompat;
 import static androidx.constraintlayout.widget.Constraints.TAG;
 
 public class AppFirebaseMessagingService extends FirebaseMessagingService {
-
     int badge_count ; // 브로드캐스트 수행순서
     @Override
     public void onMessageReceived(@NonNull RemoteMessage remoteMessage) {
         Map<String, String> pushDataMap = remoteMessage.getData();
          sendNotification(pushDataMap);
-
     }
 
     @Override

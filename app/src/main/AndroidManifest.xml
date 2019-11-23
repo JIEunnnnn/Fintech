@@ -50,9 +50,6 @@
             </intent-filter>
         </service>
 
-
-            
-
         <!-- 세로모드! 설정하기. -->
         <activity android:name="com.journeyapps.barcodescanner.CaptureActivity"
             android:screenOrientation="fullSensor"
