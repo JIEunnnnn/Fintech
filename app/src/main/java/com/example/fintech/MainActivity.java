@@ -33,20 +33,14 @@ public class MainActivity extends AppCompatActivity {
     private static final String TAG = "OKHTTP 테스트";
     public static final MediaType JSON = MediaType.parse("application/json; charset=utf-8");
 
-
-
-
-
-    public static String result  ;
+    public static String result;
     String MSG = "YES" ;
     // result를 전역변수로 설정해서 서버에서 요청받은 메세지에 ㄸ라 intent 수행하게끔 설정하기
 
     EditText tel ;
     EditText pw ;
     Button btnLogin ;
-
-
-
+    Button btnSignup;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,12 +50,10 @@ public class MainActivity extends AppCompatActivity {
         final HttpConnection2 connectServ = new HttpConnection2();
         final Intent intent = new Intent(this, MenuActivity.class);
 
-
+        btnSignup = findViewById(R.id.btnsignUp);
         btnLogin = (Button) findViewById(R.id.loginBtn);
         tel = (EditText)findViewById(R.id.login_id);
         pw = (EditText)findViewById(R.id.login_pw);
-
-
 
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -70,14 +62,10 @@ public class MainActivity extends AppCompatActivity {
                 final Integer inTel = Integer.parseInt(""+tel.getText());
                 final Integer inPw = Integer.parseInt(""+pw.getText());
 
-
                 try{
-
                  connectServ.requestPost(url, inTel, inPw);
 
                  Thread.sleep(100);
-
-
 
                     if(result.equals(MSG)){
                         intent.putExtra("id",tel.getText().toString());
@@ -90,11 +78,6 @@ public class MainActivity extends AppCompatActivity {
 
                     }
 
-
-
-
-
-
                 }
                 catch (Exception e){
                     e.printStackTrace();
@@ -103,38 +86,18 @@ public class MainActivity extends AppCompatActivity {
                 }
 
 
-                //  connectServ.stop();
-
-
-              /*  do {
-                    System.out.println("쓰레드메세지dowhile"+result);
-
-                }while(result == null);
-
-
-
-                System.out.println("쓰레드메세지조건문"+result);
-
-                if(result.equals(MSG)){
-                    startActivity(intent);  // 서버에서 response 응답받으면 다음 화면으로 넘어가도록 처리!
-                    finish();
-
-                }else {
-                    Toast.makeText(getApplicationContext(), "일치하는 회원정보가 없습니다.", Toast.LENGTH_SHORT).show();
-
-                }
-*/
-
-
-
-
-
-
-
             }
         });
 
+        btnSignup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent2 = new Intent(view.getContext(), SignUpActivity.class);
+                startActivity(intent2);
+            }
+        });
     }
+
 
     class HttpConnection2
     {
@@ -178,47 +141,10 @@ public class MainActivity extends AppCompatActivity {
                  Log.d("Thread", "콜백매세지!");
 
 
-
-               /* new Thread(new Runnable() {
-                    @Override
-                    public void run() {
-
-
-                            try{
-
-
-
-
-
-
-
-
-
-                            }catch (IOException e){
-                                Log.d("Thread","동기식 thread 실패...");
-                                e.printStackTrace();
-                            }
-
-
-                        }
-
-
-
-                }).start();*/
-
-
             }catch (Exception e){
                 e.printStackTrace();
             }
-
-
-
-
-
         }
-
-
-
 
     }
 }

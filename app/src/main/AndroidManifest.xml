@@ -38,6 +38,7 @@
         <activity android:name=".AddCardActivity"/>
         <activity android:name=".FragCardActivity" />
         <activity android:name=".CustomDialog"/>
+        <activity android:name=".SignUpActivity"/>
         
         <service
             android:name=".Firebase.AppFirebaseMessagingService"
