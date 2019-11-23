@@ -1,10 +1,13 @@
 package com.example.fintech;
 
+import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import com.example.fintech.DataObject.Card;
@@ -16,6 +19,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class GivingPassViewAdapter extends RecyclerView.Adapter<GivingPassViewAdapter.CustomViewHolder> {
     private ArrayList<Card> mList;  //들어갈 data List
+     private CustomDialog dialog ;
+     Activity activity ;
 
     //ViewHolder
     public class CustomViewHolder extends RecyclerView.ViewHolder {
@@ -27,15 +32,18 @@ public class GivingPassViewAdapter extends RecyclerView.Adapter<GivingPassViewAd
             this.textViewCardName = (TextView) view.findViewById(R.id.textcardName);
             this.textViewCardNo = (TextView) view.findViewById(R.id.textcardNo);
 
+
             Button btnGivingPass = (Button) view.findViewById(R.id.buttonGivingPass);
-            final Intent intent = new Intent(view.getContext(), QRActivity.class);
+
+
             btnGivingPass.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     //카드 속 '이용권 주기' 버튼 누를 시 Activity
+                    // dialog = new CustomDialog(this);
+                    dialog.show();
 
 
-                    v.getContext().startActivity(intent);
                 }
             });
         }
@@ -67,5 +75,7 @@ public class GivingPassViewAdapter extends RecyclerView.Adapter<GivingPassViewAd
     public int getItemCount() {
         return (null != mList ? mList.size() : 0);
     }
+
+
 
 }
