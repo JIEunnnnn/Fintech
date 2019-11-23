@@ -1,6 +1,7 @@
 package com.example.fintech.DataObject;
 
 public class Pass {
+
     private String fromId; //보내준 사람 id
     private String sentDate;    //보낸 날짜
 

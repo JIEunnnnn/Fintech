@@ -1,6 +1,7 @@
 package com.example.fintech;
 
 import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,6 +18,7 @@ import java.util.ArrayList;
 public class UsePassViewAdapter extends RecyclerView.Adapter<UsePassViewAdapter.CustomViewHolder> {
     private ArrayList<Pass> mList;  //들어갈 data List
 
+    Button btnQR;
     //ViewHolder
     public class CustomViewHolder extends RecyclerView.ViewHolder {
         protected TextView textViewFromID;
@@ -27,12 +29,13 @@ public class UsePassViewAdapter extends RecyclerView.Adapter<UsePassViewAdapter.
             this.textViewFromID = (TextView) view.findViewById(R.id.from_idInpass);
             this.textViewTime = (TextView) view.findViewById(R.id.timeInpass);
 
-            Button btnQR = (Button) view.findViewById(R.id.buttonQR);
+            btnQR = (Button) view.findViewById(R.id.buttonQR);
             final Intent intent = new Intent(view.getContext(), QRActivity.class);
             btnQR.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     //새로운 액티비시 생성하여 qr코드 인식하는 화면 및  인식된 qr코드를 읽는방법 ㅇㅇ
+                    Log.d("ItemPosition", "from_id of position: "+mList.get(getLayoutPosition()).getFromId());
                     v.getContext().startActivity(intent);
                 }
             });
@@ -50,6 +53,16 @@ public class UsePassViewAdapter extends RecyclerView.Adapter<UsePassViewAdapter.
                 .inflate(R.layout.frag_pass, parent, false);
 
         CustomViewHolder viewHolder = new CustomViewHolder(view);
+
+//        final Intent intent = new Intent(view.getContext(), QRActivity.class);
+//        btnQR.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                //새로운 액티비시 생성하여 qr코드 인식하는 화면 및  인식된 qr코드를 읽는방법 ㅇㅇ
+//
+//                v.getContext().startActivity(intent);
+//            }
+//        });
 
         return viewHolder;
     }
