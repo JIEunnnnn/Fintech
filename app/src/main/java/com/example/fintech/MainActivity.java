@@ -74,11 +74,13 @@ public class MainActivity extends AppCompatActivity {
                 try{
 
                  connectServ.requestPost(url, inTel, inPw);
+
                  Thread.sleep(100);
 
 
 
                     if(result.equals(MSG)){
+                        intent.putExtra("id",tel.getText().toString());
                         startActivity(intent);  // 서버에서 response 응답받으면 다음 화면으로 넘어가도록 처리!
                         finish();
 

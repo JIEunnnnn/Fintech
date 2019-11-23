@@ -10,6 +10,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class MenuActivity extends AppCompatActivity {
 
+    public static String id;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -19,12 +21,15 @@ public class MenuActivity extends AppCompatActivity {
         Button btnGivingPass = (Button) findViewById(R.id.givingPassBtn);
         Button btnUsePass = (Button) findViewById(R.id.usePassBtn);
 
+        Intent intent = getIntent();
+        id = intent.getStringExtra("id");
 
 
         btnGivingPass.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
                 Intent intent =new Intent(getApplicationContext(), GivingPassActivity.class);
+
                 startActivity(intent);
             }
         });
