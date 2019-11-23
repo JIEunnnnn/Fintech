@@ -1,4 +1,4 @@
-package com.example.fintech.Pass;
+package com.example.fintech.DataObject;
 
 public class Pass {
     private String fromId; //보내준 사람 id

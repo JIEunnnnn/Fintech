@@ -5,29 +5,48 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
 
+import com.example.fintech.DataObject.Card;
+
+import java.util.ArrayList;
+
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import okhttp3.OkHttpClient;
 
 public class GivingPassActivity extends AppCompatActivity {
 
-    ImageButton cardPlus ;
+
+    private ArrayList<Card> mArrayList;
+    private GivingPassViewAdapter mAdapter;
+    private int count = -1;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.give_pass);
 
-        cardPlus = (ImageButton)findViewById(R.id.cardplus);
-        Intent intet = new Intent(this, FragCardActivity.class  );
+        RecyclerView pRecyclerView = findViewById(R.id.recycle_pass);
+        LinearLayoutManager pLinearLayoutManager = new LinearLayoutManager(this);
+        pRecyclerView.setLayoutManager(pLinearLayoutManager);
 
-        cardPlus.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        mArrayList = new ArrayList<>();
+
+        // 서버에 전송받은 데이터 ㅇㅇ 받기
+        mArrayList.add(new Card("Deep Dream(체크)[딥 드림] 신한은행", "3569-****-****-2745"));
+        mArrayList.add(new Card("Simple Platinum", "23779-****-****-001"));
+        mAdapter = new GivingPassViewAdapter(mArrayList);
+        pRecyclerView.setAdapter(mAdapter);
 
 
-            }
-        });
+    }
 
+
+
+    class CardPlus {
+
+        OkHttpClient cardclnt = new OkHttpClient();
 
 
     }

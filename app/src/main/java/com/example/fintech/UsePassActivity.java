@@ -1,15 +1,12 @@
 package com.example.fintech;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.fintech.Pass.Pass;
+import com.example.fintech.DataObject.Pass;
 
 import java.util.ArrayList;
 
@@ -30,6 +27,7 @@ public class UsePassActivity  extends AppCompatActivity {
 
         mArrayList = new ArrayList<>();
 
+        // 서버에 전송받은 데이터 ㅇㅇ 받기
         mArrayList.add(new Pass("hyovin", "2019-11-29"));
         mArrayList.add(new Pass("hyovin", "2019-11-30"));
         mAdapter = new UsePassViewAdapter(mArrayList);

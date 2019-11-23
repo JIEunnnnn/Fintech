@@ -33,7 +33,6 @@
         <activity android:name=".MenuActivity"/>
         <activity android:name=".GivingPassActivity"/>
         <activity android:name=".UsePassActivity"/>
-        <activity android:name=".CardManagementActivity"/>
         <activity android:name=".AddCardActivity"/>
         <activity android:name=".FragCardActivity" />
 

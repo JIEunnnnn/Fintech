@@ -10,7 +10,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.fintech.Pass.Pass;
+import com.example.fintech.DataObject.Pass;
 
 import java.util.ArrayList;
 
