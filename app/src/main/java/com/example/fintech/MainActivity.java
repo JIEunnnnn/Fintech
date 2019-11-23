@@ -59,8 +59,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                final Integer inTel = Integer.parseInt(""+tel.getText());
-                final Integer inPw = Integer.parseInt(""+pw.getText());
+                final String inTel = tel.getText().toString();
+                final String inPw = pw.getText().toString();
 
                 try{
                  connectServ.requestPost(url, inTel, inPw);
@@ -105,7 +105,7 @@ public class MainActivity extends AppCompatActivity {
         OkHttpClient clnt  = new OkHttpClient(); // OK객체 생성
 
 
-        public void requestPost(String url, Integer id, Integer pw ){
+        public void requestPost(String url, String id, String pw ){
 
             final RequestBody body ;
             try{
