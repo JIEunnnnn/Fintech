@@ -35,9 +35,9 @@ dependencies {
     // OKHttp3 관련 코드
     implementation 'com.squareup.okhttp3:okhttp:4.2.2'
 
-
-
     implementation 'com.google.firebase:firebase-core:17.0.0'
     implementation 'com.google.firebase:firebase-messaging:20.0.0'
 }
+
+apply plugin: 'com.google.gms.google-services'
 

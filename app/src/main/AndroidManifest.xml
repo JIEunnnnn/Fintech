@@ -18,6 +18,8 @@
         android:theme="@style/AppTheme"
        >
 
+
+
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -41,6 +43,7 @@
         <activity android:name="com.journeyapps.barcodescanner.CaptureActivity"
             android:screenOrientation="fullSensor"
             tools:replace="screenOrientation"/>
-    </application>
+
+        </application>
 
 </manifest>
