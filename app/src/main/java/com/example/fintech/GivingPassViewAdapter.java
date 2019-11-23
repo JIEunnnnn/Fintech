@@ -33,21 +33,25 @@ public class GivingPassViewAdapter extends RecyclerView.Adapter<GivingPassViewAd
                 @Override
                 public void onClick(View v) {
                     //카드 속 '이용권 주기' 버튼 누를 시 Activity
+
+
                     v.getContext().startActivity(intent);
                 }
             });
         }
     }
 
-    public GivingPassViewAdapter(ArrayList<Card> list){ this.mList = list;}
+    public GivingPassViewAdapter( ArrayList<Card> list){ this.mList=list; }
 
     @NonNull
     @Override
     public CustomViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+
         View view = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.frag_card, parent, false);
 
         CustomViewHolder viewHolder = new CustomViewHolder(view);
+
 
         return viewHolder;
     }
