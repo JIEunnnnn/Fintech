@@ -35,6 +35,7 @@
         <activity android:name=".UsePassActivity"/>
         <activity android:name=".AddCardActivity"/>
         <activity android:name=".FragCardActivity" />
+        <activity android:name=".CustomDialog"/>
 
         <!-- 세로모드! 설정하기. -->
         <activity android:name="com.journeyapps.barcodescanner.CaptureActivity"
