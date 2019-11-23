@@ -37,7 +37,7 @@ public class GivingPassViewAdapter extends RecyclerView.Adapter<GivingPassViewAd
      private String url = "http://10.3.17.173:9436/pass/give";
      private String result;
      private ArrayList<Card> mList;  //들어갈 data List
-     private CustomDialog dialog ;
+
      private Pass chosenPass;
 
     //ViewHolder
@@ -60,7 +60,7 @@ public class GivingPassViewAdapter extends RecyclerView.Adapter<GivingPassViewAd
                     chosenPass.setCard_num(mList.get(getLayoutPosition()).getCardNo());
                     Log.d("item", "chosenPass. card_numb: "+chosenPass.getCard_num());
 
-
+                    showDialog(v);
                 }
             });
 
@@ -99,27 +99,33 @@ public class GivingPassViewAdapter extends RecyclerView.Adapter<GivingPassViewAd
         View view2 = LayoutInflater.from(view.getContext()).inflate(R.layout.custom_dialog, null);
         builder.setView(view2);
 
-        EditText edittoid = (EditText)view2.findViewById(R.id.edittoid);
-        EditText editlimit = (EditText)view2.findViewById(R.id.editlimit);
-        EditText editfrompw = (EditText)view2.findViewById(R.id.editfrompw);
+        final EditText edittoid = (EditText)view2.findViewById(R.id.edittoid);
+        final EditText editlimit = (EditText)view2.findViewById(R.id.editlimit);
+        final EditText editfrompw = (EditText)view2.findViewById(R.id.editfrompw);
         Button okbtn = (Button) view2.findViewById(R.id.okButton);
         Button canclebtn = (Button) view2.findViewById(R.id.cancelButton);
 
+        final AlertDialog dialog = builder.create();
         okbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                PostGivingPassClnt postGivingPassClnt = new PostGivingPassClnt();
+                postGivingPassClnt.requestPassPost(edittoid.getText().toString(), editlimit.getText().toString(), editfrompw.getText().toString());
 
+                dialog.dismiss();
             }
         });
         canclebtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                dialog.dismiss();
             }
         });
+
+        dialog.show();
     }
 
-    class postGivingPassClnt {
+    class PostGivingPassClnt {
         OkHttpClient passclnt = new OkHttpClient(); // OK객체 생성
 
         public void requestPassPost(String to_id, String limit_price, String pw) {
@@ -128,10 +134,11 @@ public class GivingPassViewAdapter extends RecyclerView.Adapter<GivingPassViewAd
 
             try {
                 JSONObject js = new JSONObject();
+                js.put("from_id", MenuActivity.id);
                 js.put("to_id", to_id);
                 js.put("limit_price", limit_price);
                 js.put("pw", pw);
-                js.put("card_numb", chosenPass.getCard_num());
+                js.put("card_num", chosenPass.getCard_num());
 
                 passbody = RequestBody.create(JSON, js.toString());
 
@@ -145,14 +152,14 @@ public class GivingPassViewAdapter extends RecyclerView.Adapter<GivingPassViewAd
                         .enqueue(new Callback() {
                             @Override
                             public void onFailure(@NotNull Call call, @NotNull IOException e) {
-                                Log.d("Thread", "이용권주기서버실패 ");
+                                Log.d("Thread", "Pass주기서버실패 ");
 
                             }
 
                             @Override
                             public void onResponse(@NotNull Call call, @NotNull Response response) throws IOException {
                                 result = response.body().string();
-                                Log.d("Thread", "이용권주기서버성공 " + result);
+                                Log.d("Thread", "Pass주기서버성공 " + result);
 
                                 // MAP => frag_pass로 전달해야지
 
