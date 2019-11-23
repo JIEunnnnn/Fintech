@@ -2,7 +2,7 @@ package com.example.fintech.DataObject;
 
 import java.io.Serializable;
 
-public class Pass implements Serializable {
+public class Pass{
     private String pass_id;
 
 
