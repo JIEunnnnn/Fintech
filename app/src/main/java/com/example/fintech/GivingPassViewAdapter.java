@@ -40,12 +40,14 @@ public class GivingPassViewAdapter extends RecyclerView.Adapter<GivingPassViewAd
                 @Override
                 public void onClick(View v) {
                     //카드 속 '이용권 주기' 버튼 누를 시 Activity
-                    // dialog = new CustomDialog(this);
+                    //ialog = new CustomDialog(this);
                     dialog.show();
 
 
                 }
             });
+
+
         }
     }
 

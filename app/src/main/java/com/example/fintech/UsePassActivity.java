@@ -55,7 +55,7 @@ public class UsePassActivity  extends AppCompatActivity {
                     String cardname = pass.getString("from_id");
 //                    String cardnumb = pass.getString("card_number");
                     Log.d("JSON",  i+"번째 Pass "+ pass.getString("from_id")+" to "+pass.getString("to_id"));
-                    mList.add(new Pass(pass.getString("from_id"), pass.getString("limit_price")));
+                    mList.add(new Pass(pass.getString("pass_id"), pass.getString("from_id"), pass.getString("limit_price")));
                 }
             }catch (JSONException e){
                 e.printStackTrace();
@@ -70,8 +70,6 @@ public class UsePassActivity  extends AppCompatActivity {
         LinearLayoutManager pLinearLayoutManager = new LinearLayoutManager(this);
         pRecyclerView.setLayoutManager(pLinearLayoutManager);
 
-        mList.add(new Pass("hyovin", "2019-11-29"));
-        mList.add(new Pass("hyovin", "2019-11-30"));
         mAdapter = new UsePassViewAdapter(mList);
         pRecyclerView.setAdapter(mAdapter);
     }
