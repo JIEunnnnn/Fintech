@@ -57,7 +57,10 @@ public class SignUpActivity extends AppCompatActivity {
         btnSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 id = phone1.getText().toString()+phone2.getText().toString()+phone3.getText().toString();
+                PostSignupClnt postSignupClnt = new PostSignupClnt();
+                postSignupClnt.requestPassPost();
                 Toast.makeText(getApplicationContext(),"환영합니다. 다시 로그인 해주세요.", Toast.LENGTH_LONG).show();
 
                 Intent homeIntent = new Intent(view.getContext(), MainActivity.class);
