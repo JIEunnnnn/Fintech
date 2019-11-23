@@ -15,17 +15,12 @@ public class MenuActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.menu);
 
-        Button btnManageCard = (Button) findViewById(R.id.manageCardBtn);
+
         Button btnGivingPass = (Button) findViewById(R.id.givingPassBtn);
         Button btnUsePass = (Button) findViewById(R.id.usePassBtn);
 
-        btnManageCard.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent =new Intent(getApplicationContext(), CardManagementActivity.class);
-                startActivity(intent);
-            }
-        });
+
+
         btnGivingPass.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
