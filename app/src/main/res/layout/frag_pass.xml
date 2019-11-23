@@ -132,7 +132,7 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_margin="1dp"
-            android:text="한도"
+            android:text="한도금액"
             android:textAlignment="center"
             android:background="@drawable/button_layout"
             app:layout_constraintLeft_toRightOf="@+id/guideline01"

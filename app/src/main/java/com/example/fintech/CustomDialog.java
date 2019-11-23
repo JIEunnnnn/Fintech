@@ -12,7 +12,10 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class CustomDialog extends Dialog {
-    private Context customcontext ;
+
+    private View.OnClickListener mPositiveListener;
+    private View.OnClickListener mNegativeListener;
+
     EditText edittoid, editlimit, editfrompw ;
     Button okbtn, canclebtn ;
 
@@ -22,36 +25,20 @@ public class CustomDialog extends Dialog {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.custom_dialog);
 
-
         edittoid = (EditText)findViewById(R.id.edittoid);
         editlimit = (EditText)findViewById(R.id.editlimit);
         editfrompw = (EditText)findViewById(R.id.editfrompw);
         okbtn = (Button) findViewById(R.id.okButton);
         canclebtn = (Button)findViewById(R.id.cancelButton);
 
-        okbtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-            }
-        });
-
-        canclebtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-            }
-        });
-
+        okbtn.setOnClickListener(mPositiveListener);
+        canclebtn.setOnClickListener(mNegativeListener);
     }
 
-    public  CustomDialog(@NonNull Context context){
+    public  CustomDialog(@NonNull Context context, View.OnClickListener positiveListener, View.OnClickListener negativeListener){
         super(context);
-        customcontext = context;
-
-
-
-
+        this.mPositiveListener = positiveListener;
+        this.mNegativeListener = negativeListener;
     }
 
 
