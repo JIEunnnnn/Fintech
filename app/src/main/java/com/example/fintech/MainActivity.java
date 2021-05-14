@@ -70,7 +70,7 @@ public class MainActivity extends AppCompatActivity {
                     if(result.equals(MSG)){
                         intent.putExtra("id",tel.getText().toString());
                         intent.putExtra("pw", tel.getText().toString());
-                        startActivity(intent);  // 서버에서 response 응답받으면 다음 화면으로 넘어가도록 처리!
+                        startActivity(intent);  // 서버에서 response 응답받으면 메뉴화면으로 넘어가도록 처리!
                         finish();
 
                     }else {
